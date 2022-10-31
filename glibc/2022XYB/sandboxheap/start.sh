@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./sandbox ./sandboxheap
