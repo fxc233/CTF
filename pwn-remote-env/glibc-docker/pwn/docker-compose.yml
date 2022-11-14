@@ -1,0 +1,8 @@
+version: '2'
+services:
+  pwn:
+    build: .
+    image: pwn/pwn1
+    restart: always
+    ports:
+      - "0.0.0.0:8001:9999"
