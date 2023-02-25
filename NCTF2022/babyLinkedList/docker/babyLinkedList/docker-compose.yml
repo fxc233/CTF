@@ -1,0 +1,8 @@
+version: '3'
+services:
+  pwn:
+    build: .
+    image: nctf/musl-babylinkedlist
+    restart: always
+    ports:
+      - "0.0.0.0:8002:9999"
