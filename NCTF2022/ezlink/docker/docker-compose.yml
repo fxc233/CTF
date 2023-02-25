@@ -1,0 +1,8 @@
+version: '2'
+services:
+  pwn:
+    build: .
+    image: nctf/ezlink
+    restart: always
+    ports:
+      - "0.0.0.0:8003:9999"

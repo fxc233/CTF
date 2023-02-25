@@ -1,0 +1,8 @@
+version: '3'
+services:
+  pwn:
+    build: .
+    image: nctf/babyylinkedlist
+    restart: always
+    ports:
+      - "0.0.0.0:8003:9999"
