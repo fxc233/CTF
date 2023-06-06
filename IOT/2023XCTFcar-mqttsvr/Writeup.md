@@ -115,7 +115,8 @@ s.send(VariableHeader)
 
 #### 漏洞利用
 
-泄露出堆地址之后，就可以得到程序基地址。可以劫持**got**表，并且**NX**没有效果，那么我们就可以把**malloc等函数**的**got**表改为某一个堆地址，并且在这个堆地址上写入**shellcode**即可。**uclibc mips64**的堆利用我参考这篇文章（https://eqqie.cn/index.php/search/mips64），发现有三个不同的malloc版本。但我并不知道怎么判断当前**uclibc**是哪一个版本，我就用**malloc-standard**这个版本的利用方法试了一下，直接覆盖一个杯释放堆块的**fd**，发现二次分配，可以申请到预期位置（malloc_got - 0x20）。
+泄露出堆地址之后，就可以得到程序基地址。可以劫持**got**表，并且**NX**没有效果，那么我们就可以把**malloc等函数**的**got**表改为某一个堆地址，并且在这个堆地址上写入**shellcode**即可。**uclibc mips64**的堆利用我参考https://eqqie.cn/index.php/search/mips64 ，发现有三个不同的malloc版本。但我并不知道怎么判断当前**uclibc**是哪一个版本，我就用**malloc-standard**这个版本的利用方法试了一下，直接覆盖一个杯释放堆块的**fd**，发现二次分配，可以申请到预期位置（malloc_got - 0x20）。
+
 
 ![](./img/13.png)
 
